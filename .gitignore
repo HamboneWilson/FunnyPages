@@ -1,0 +1,7 @@
+*.pyc
+*.log
+Thumbs.db
+.DS_Store
+virenv
+.idea
+media
