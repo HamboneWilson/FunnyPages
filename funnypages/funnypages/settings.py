@@ -1,4 +1,6 @@
-# Django settings for funnypages project.
+import os
+
+PROJECT_DIR = os.path.abspath(os.path.join(os.path.realpath(__file__), '../../'))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -50,7 +52,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = '/webapps/funnypages/funnypages/media'
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -61,7 +63,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/webapps/funnypages/funnypages/static'
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static/')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -121,7 +123,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gunicorn',
-    'funnypages_viewer',
+    'viewer',
     'django.contrib.admin',
     'django.contrib.admindocs',
 )
