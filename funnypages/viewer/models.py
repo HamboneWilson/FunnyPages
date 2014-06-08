@@ -4,6 +4,7 @@ class ComicSeries(models.Model):
     """A webcomic (eg. Penny Arcade, PvP, etc.)"""
     name = models.CharField(max_length=200)
     homepage = models.URLField(max_length=200)
+    collections = models.ManyToManyField(Collection)
 
     def __unicode__(self):
         return self.name
@@ -24,7 +25,6 @@ class ComicImg(models.Model):
 class Collection(models.Model):
     """A collection of webcomics that can be called up for display"""
     name = models.CharField(max_length=200)
-    #comics = list object containing ComicSeries names
     user = models.ForeignKey(User)
 
 class User(models.Model):
