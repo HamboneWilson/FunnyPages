@@ -20,3 +20,13 @@ class ComicImg(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Collection(models.Model):
+    """A collection of webcomics that can be called up for display"""
+    name = models.CharField(max_length=200)
+    #comics = list object containing ComicSeries names
+    user = models.ForeignKey(User)
+
+class User(models.Model):
+    username = models.CharField(max_length = 200)
+    password = models.CharField(max_length = 24)
