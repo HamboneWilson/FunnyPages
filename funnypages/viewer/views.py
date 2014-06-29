@@ -1,15 +1,27 @@
-from annoying.decorators import render_to
-from viewer.models import ComicSeries
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect
+from viewer.models import ComicSeries, Collection
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from viewer.forms import CollectionForm
 
-@render_to('viewer/viewer.html')
-def index(request):
-    return {
-        'comics': ComicSeries.objects.all()
-    }
+
 def homepage(request):
-    return HttpResponse("You are at the funnypages home page")
-def request(request):
-    return HttpResponse("You are at the funnypages request a comic page")
+    return render(request, 'viewer/homepage.html')
+
+
+def newcomic(request):
+    return render(request, 'viewer/newcomic.html')
+
+
 def create(request):
-    return HttpResponse("You are at the funnypages create a collection page")
+    if request.method == 'POST':
+        form = CollectionForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect()
+    return render(request, 'viewer/create.html')
+
+
+def viewer(request):
+    return render(request, 'viewer/viewer.html')
+

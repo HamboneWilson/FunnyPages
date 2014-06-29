@@ -109,11 +109,7 @@ ROOT_URLCONF = 'funnypages.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'funnypages.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
+TEMPLATE_DIRS = [os.path.join(PROJECT_DIR, 'templates')]
 
 INSTALLED_APPS = (
     'django.contrib.auth',

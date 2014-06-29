@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class ComicSeries(models.Model):
     """A webcomic (eg. Penny Arcade, PvP, etc.)"""
     name = models.CharField(max_length=200)
@@ -7,6 +8,7 @@ class ComicSeries(models.Model):
 
     def __unicode__(self):
         return self.name
+
 
 class ComicImg(models.Model):
     """An comic page from a comic series"""
@@ -21,6 +23,7 @@ class ComicImg(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class Collection(models.Model):
     """A collection of webcomics that can be called up for display"""
     name = models.CharField(max_length=200)
@@ -29,6 +32,7 @@ class Collection(models.Model):
 
     def __unicode__(self):
         return self.name
+
 
 class User(models.Model):
     username = models.CharField(max_length = 200)

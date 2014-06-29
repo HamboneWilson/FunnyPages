@@ -7,8 +7,5 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^collection/', 'viewer.views.index'),
-    url(r'^home/', 'viewer.views.homepage'),
-    url(r'^create/', 'viewer.views.create'),
-    url(r'^request/', 'viewer.views.request'),
+    url(r'^funnypages/', include('viewer.urls', namespace = "viewer"))
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
