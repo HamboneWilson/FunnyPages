@@ -6,22 +6,27 @@ from viewer.forms import CollectionForm
 
 
 def homepage(request):
-    return render(request, 'viewer/homepage.html')
+    return render(request, 'homepage')
 
 
-def newcomic(request):
-    return render(request, 'viewer/newcomic.html')
+def edit(request):
+    return render(request, 'edit')
 
 
 def create(request):
     if request.method == 'POST':
-        form = CollectionForm(request.POST, request.FILES)
+        form = CollectionForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect()
-    return render(request, 'viewer/create.html')
+            new_collection = form.save()
+            return redirect('viewer', collection_id=new_collection.id)
+    else:
+        form = CollectionForm()
+
+    return render(request, 'create', {
+        'form': form,
+    })
 
 
-def viewer(request):
-    return render(request, 'viewer/viewer.html')
+def viewer(request, collection_id):
+    return render(request, 'viewer')
 
