@@ -5,12 +5,12 @@ from django.core.urlresolvers import reverse
 from viewer.forms import CollectionForm
 
 
-def homepage(request):
-    return render(request, 'homepage')
+def landingpage(request):
+    return render(request, 'viewer/landingpage.html')
 
 
 def edit(request):
-    return render(request, 'edit')
+    return render(request, 'viewer/edit.html')
 
 
 def create(request):
@@ -18,15 +18,15 @@ def create(request):
         form = CollectionForm(request.POST)
         if form.is_valid():
             new_collection = form.save()
-            return redirect('viewer', collection_id=new_collection.id)
+            return redirect('viewer/viewer.html', collection_id=new_collection.id)
     else:
         form = CollectionForm()
 
-    return render(request, 'create', {
+    return render(request, 'viewer/create.html', {
         'form': form,
     })
 
 
 def viewer(request, collection_id):
-    return render(request, 'viewer')
+    return render(request, 'viewer/viewer.html')
 
