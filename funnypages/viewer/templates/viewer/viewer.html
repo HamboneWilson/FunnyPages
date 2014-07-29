@@ -1,0 +1,83 @@
+{% load staticfiles %}
+
+<link rel='stylesheet' type='text/css' href='{% static 'viewer/css/styles.css' %}'/>
+<DOCTYPE html>
+<html>
+
+<head>
+    <title>FUNNYPAGES</title>
+
+    <link rel="stylesheet" type='text/css' href="{% static 'viewer/css/normalize.css' %}" />
+    <link rel="stylesheet" type='text/css' href="{% static 'viewer/css/styles.css' %}" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <!-- ADD A COLLECTION -->
+        <a class="add" href=""><p><img src="{% static "viewer/images/addicon.png" %}" />ADD COLLECTION</p></a>
+
+
+
+        <form class="viewlist" action="" method="post">
+            <!-- view a collection drop down menu 179x24 px-->
+        </form>
+    </header>
+
+    <!-- LOGO -->
+    <div class="logo-container">
+        <img class="logo" src="{% static 'viewer/images/Funnypages-logo.png' %}" alt="FUNNYPAGES" />
+    </div>
+
+
+
+    <!-- SUBHEADER -->
+    <div class="container">
+        <ul>
+            <li><h2>COLLECTION NAME</h2></li>
+            <li><a class="edit" href="">Edit</a></li>
+        </ul>
+    </div> <!-- end container -->
+    <hr class="hr-subheader" />
+
+
+
+    <!-- COMIC VIEW -->
+        <!-- NOTE: NEED TO FINISH DJANGO CODE AND SEE HOW TO HANDLE THIS -->
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class=column-half>
+                    <h2>REQUEST A COMIC</h2>
+
+                    <p class="fgen">Submit requests for new comics here.  Just enter the title of the series and submit!</p>
+
+                    <form action="" method="post">
+                        <input type="text" id="newtitle" name="newtitle" placeholder="Series Title">
+
+                        <input type="submit" value="" class="btn"> <!-- NOTE: NEED TO FIGURE OUT HOW TO NEST BUTTON IMAGE -->
+                    </form>
+                </div> <!-- end column-half -->
+                <div class=column-half>
+                    <p class="adam">Adam Carr | Python Developer</p>
+                    <p class="fgen">York, Pennsylvania</p>
+
+                    <a class="email" href="mailto:carr.adam@gmail.com"><p>carr.adam@gmail.com</p></a>
+
+                    <ul class="social">
+                        <li><a href=""><img src="{%  static "viewer/images/LinkedIn.png" %}" /></a></li>
+                        <li><a href=""><img src="{%  static "viewer/images/wordpress.png" %}" /></a></li>
+                        <li><a href=""><img src="{%  static "viewer/images/git.png" %}" /></a></li>
+                    </ul>
+                </div> <!-- end column-half -->
+            </div> <!-- end row -->
+        </div> <!-- end container -->
+    </footer>
+</body>
+
+</html>
+</DOCTYPE>

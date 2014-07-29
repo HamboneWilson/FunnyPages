@@ -50,6 +50,14 @@ li h2 {
         color: #2a2b2e;
     }
 
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: #2a2b2e;
+}
+
 
 /* -----------------------------------------------------
 GENERAL LAYOUT RULES
@@ -90,7 +98,7 @@ GENERAL LAYOUT RULES
 .center-container {
     margin: 0 auto 72px auto;
     padding-top: 72px;
-    width: 420px;
+    width: 500px;
     text-align: center;
 }
     .create-edit-container .center-container{

@@ -18,7 +18,7 @@ def create(request):
         form = CollectionForm(request.POST)
         if form.is_valid():
             new_collection = form.save()
-            return redirect('viewer/viewer.html', collection_id=new_collection.id)
+            return redirect('viewer:viewer', collection_id=new_collection.id)
     else:
         form = CollectionForm()
 
