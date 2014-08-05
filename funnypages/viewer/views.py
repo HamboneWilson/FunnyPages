@@ -20,7 +20,7 @@ def create(request):
             new_collection = form.save()
             return redirect('viewer:viewer', collection_id=new_collection.id)
     else:
-        form = CollectionForm()
+        form = CollectionForm(initial={'user': '1'})
 
     return render(request, 'viewer/create.html', {
         'form': form,

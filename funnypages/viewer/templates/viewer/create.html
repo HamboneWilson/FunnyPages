@@ -43,8 +43,10 @@
         <div class="checkboxes">
             <form action="" method="post">
                 {% csrf_token %}
-             {{ form.as_p }}
-             <input type='submit' value="FINISH" />
+                {{ form.name }}
+                {{ form.series }}
+                {{ form.user }}
+                <input type='submit' value="FINISH" />
             </form>
         </div> <!-- end checkboxes -->
     </div> <!-- end create-edit-container -->
