@@ -1,6 +1,8 @@
 {% load staticfiles %}
 
-/* TYPOGRAPHY */
+/* ----------------------------------------------------------
+TYPOGRAPHY
+------------------------------------------------------------*/
 body {
     color: #ffffff;
     font: 16px/24px "Calibri Normal", Arial, sans-serif;
@@ -103,11 +105,26 @@ GENERAL LAYOUT RULES
 }
     .create-edit-container .center-container{
         width: 500px;
+        padding-top: 32px;
         margin-bottom:48px;
     }
 
+.checkboxes form ul {
+    list-style-type: none;
+    margin-top: 48px;
+}
+    .checkboxes form ul li {
+        display: inline;
+        margin: 16px;
+    }
+        .checkboxes form ul li:nth-child(5):after {
+            content: "";
+            display: block;
+        }
 
-/* HEADER */
+/* --------------------------------------------------------------
+HEADER
+---------------------------------------------------------------*/
 header {
     background-color: #ff6d01;
     width: 100%;
@@ -137,7 +154,9 @@ header form {
     margin: 10px 50px 0 0;
 }
 
-/* FOOTER */
+/* -------------------------------------------------------
+FOOTER
+---------------------------------------------------------*/
 footer {
     background-color: #ff6d01;
     width: 100%;
@@ -176,11 +195,21 @@ footer {
 }
 
 
-/* BUTTONS */
+/* -------------------------------------------------
+BUTTONS
+---------------------------------------------------*/
 .btn-content {
     margin-top: 48px;
 }
 
 .lp-container .btn-content {
     margin-top: 72px;
+}
+
+.save {
+    background-image: url(../images/button-save.jpg);
+    margin-top: 48px;
+    border: none;
+    width: 145px;
+    height: 36px;
 }
