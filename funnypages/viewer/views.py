@@ -28,5 +28,6 @@ def create(request):
 
 
 def viewer(request, collection_id):
-    return render(request, 'viewer/viewer.html')
+    collection = get_object_or_404(Collection, pk=collection_id)
+    return render(request, 'viewer/viewer.html', {'collection': collection})
 
