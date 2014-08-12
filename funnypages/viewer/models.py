@@ -35,6 +35,7 @@ class Collection(models.Model):
 
 
 class User(models.Model):
+    """A class for storing user data"""
     username = models.CharField(max_length = 200)
     password = models.CharField(max_length = 24)
 
@@ -42,5 +43,6 @@ class User(models.Model):
         return self.username
 
 class SubmissionLog(models.Model):
+    """A class for storing requests for new comics"""
     name = models.CharField(max_length=200)
     sub_date = models.DateTimeField()

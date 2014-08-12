@@ -41,11 +41,11 @@
         </div> <!-- end ce-center-container -->
         <div class="checkboxes">
             <form action="" method="post">
-                <input type="text" id="cname" name="cname" placeholder="Collection Name">
-
-                <input type="checkbox" id="cbtitle" name="cbtitle">
-
-                <input type="submit" value="" class="btn-content"> <!-- NOTE: NEED TO FIGURE OUT HOW TO NEST BUTTON IMAGE -->
+                {% csrf_token %}
+                {{ form.name }}
+                {{ form.series }}
+                {{ form.user }}
+                <input class="save" type='submit' value="" />
             </form>
         </div> <!-- end checkboxes -->
     </div> <!-- end create-edit-container -->

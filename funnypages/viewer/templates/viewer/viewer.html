@@ -36,7 +36,7 @@
     <div class="container">
         <ul>
             <li><h2>{{ collection.name }}</h2></li>
-            <li><a class="edit" href="">Edit</a></li>
+            <li><a class="edit" href="{% url 'viewer:edit' collection.id %}">Edit</a></li>
         </ul>
     </div> <!-- end container -->
     <hr class="hr-subheader" />
