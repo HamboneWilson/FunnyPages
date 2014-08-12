@@ -2,10 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from viewer.models import Collection
 from viewer.forms import CollectionForm
 
-# form = CollectionForm(prefix="collect")
-# head_form = SelectForm(prefix="head")
-# foot_form = SubmissionForm(prefix="foot")
-
 
 def landingpage(request):
     return render(request, 'viewer/landingpage.html')
