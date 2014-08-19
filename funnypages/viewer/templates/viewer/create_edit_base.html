@@ -1,0 +1,27 @@
+{% extends "/home/adam/webapps/funnypages/funnypages/viewer/templates/viewer/base.html" %}
+{% load staticfiles %}
+
+
+
+    <!-- Create Page Content -->
+    {% block content %}
+    <div class="create-edit-container">
+        <div class="center-container">
+            {% block center-container %}
+            <h2>CREATE A COLLECTION</h2>
+
+            <p id="create1">Choose your titles, name your collection, and create!</p>
+            <p>Is your favorite title missing?  Use the request a comic form below!</p>
+            {% endblock center-container %}
+        </div> <!-- end center-container -->
+        <div class="checkboxes">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.name }}
+                {{ form.series }}
+                {{ form.user }}
+                <input class="save" type='submit' value="" />
+            </form>
+        </div> <!-- end checkboxes -->
+    </div> <!-- end create-edit-container -->
+    {% endblock %}

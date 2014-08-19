@@ -1,0 +1,67 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FUNNYPAGES</title>
+
+    <link rel="stylesheet" type='text/css' href="{% static 'viewer/css/normalize.css' %}" />
+    <link rel="stylesheet" type='text/css' href="{% static 'viewer/css/styles.css' %}" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- ADD A COLLECTION -->
+        <a class="add" href={% url "viewer:create" %}><p><img src="{% static "viewer/images/addicon.png" %}" />ADD COLLECTION</p></a>
+
+
+
+        <form class="viewlist" action="" method="post">
+            <!-- view a collection drop down menu 179x24 px-->
+        </form>
+    </header>
+
+    <!-- LOGO -->
+    <div class="logo-container">
+        <img class="logo" src="{% static 'viewer/images/Funnypages-logo.png' %}" alt="FUNNYPAGES" />
+    </div>
+
+
+    {% block content %}{% endblock %}
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class=column-half>
+                    <h2>REQUEST A COMIC</h2>
+
+                    <p class="fgen">Submit requests for new comics here.  Just enter the title of the series and submit!</p>
+
+                    <form action="" method="post">
+                        <input type="text" id="newtitle" name="newtitle" placeholder="Series Title">
+
+                        <input type="submit" value="" class="btn"> <!-- NOTE: NEED TO FIGURE OUT HOW TO NEST BUTTON IMAGE -->
+                    </form>
+                </div> <!-- end column-half -->
+                <div class=column-half>
+                    <p class="adam">Adam Carr | Python Developer</p>
+                    <p class="fgen">York, Pennsylvania</p>
+
+                    <a class="email" href="mailto:carr.adam@gmail.com"><p>carr.adam@gmail.com</p></a>
+
+                    <ul class="social">
+                        <li><a href="http://www.linkedin.com/pub/adam-carr/a/925/978/"><img src="{%  static "viewer/images/LinkedIn.png" %}" /></a></li>
+                        <li><a href="http://www.snaketrials.com"><img src="{%  static "viewer/images/wordpress.png" %}" /></a></li>
+                        <li><a href="https://github.com/HamboneWilson"><img src="{%  static "viewer/images/git.png" %}" /></a></li>
+                    </ul>
+                </div> <!-- end column-half -->
+            </div> <!-- end row -->
+        </div> <!-- end container -->
+    </footer>
+</body>
+
+</html>
