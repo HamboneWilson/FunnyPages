@@ -19,7 +19,8 @@
 
 
         <form class="viewlist" action="" method="post">
-            <!-- view a collection drop down menu 179x24 px-->
+            {% csrf_token %}
+            {{ form.collections }}
         </form>
     </header>
 
@@ -42,9 +43,10 @@
                     <p class="fgen">Submit requests for new comics here.  Just enter the title of the series and submit!</p>
 
                     <form action="" method="post">
+                        {% csrf_token %}
                         <input type="text" id="newtitle" name="newtitle" placeholder="Series Title">
 
-                        <input type="submit" value="" class="btn"> <!-- NOTE: NEED TO FIGURE OUT HOW TO NEST BUTTON IMAGE -->
+                        <input type="submit" value="" class="btn" name="comicrequest"> <!-- NOTE: NEED TO FIGURE OUT HOW TO NEST BUTTON IMAGE -->
                     </form>
                 </div> <!-- end column-half -->
                 <div class=column-half>

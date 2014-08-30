@@ -14,11 +14,11 @@ class CollectionForm(forms.ModelForm):
         }
 
 
-# class CollectionSelectForm(forms.Form):
-#     """A form for selecting a collection to view in the header of every page"""
-#     collections = forms.ModelChoiceField(queryset=Collection.objects.all(), empty_label='View a Collection')
-
-
+class CollectionSelectForm(forms.Form):
+    """A form for selecting a collection to view in the header of every page"""
+    collections = forms.ModelChoiceField(queryset=Collection.objects.all(), empty_label='View a Collection')
+#
+#
 # class SubmissionForm(forms.ModelForm):
 #     """A form for submitting time stamped requests for new comics"""
 #     class Meta:

@@ -1,16 +1,16 @@
 # from viewer.forms import SubmissionForm, CollectionSelectForm, CollectionForm
 #
 #
-# def SubmissionFormContext(request):
+# def SFormContext(request):
 #     form = SubmissionForm
 #     return {'SubForm': form, }
 #
 #
-# def CollectionSelectFormContext(request):
+# def CSFormContext(request):
 #     form = CollectionSelectForm
 #     return {'CSForm': form, }
 #
 #
-# def CollectionFormContext(request):
+# def CFormContext(request):
 #     form = CollectionForm
 #     return {'CForm': form, }
