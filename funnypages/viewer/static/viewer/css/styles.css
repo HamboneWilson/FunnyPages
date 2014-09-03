@@ -221,3 +221,19 @@ BUTTONS
     width: 145px;
     height: 36px;
 }
+
+.submit {
+    background-image: url(../images/button-submit.jpg);
+    border: none;
+    width: 145px;
+    height: 36px;
+}
+
+/* -------------------------------------------------
+Fields
+---------------------------------------------------*/
+
+.comrequest {
+    width: 200px;
+    height: 36px;
+}
