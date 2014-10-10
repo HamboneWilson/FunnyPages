@@ -2,10 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from viewer.models import Collection, SubmissionLog
 from viewer.forms import CollectionForm
 from datetime import datetime
+from django.views.generic import TemplateView
 
 
-def landingpage(request):
-    return render(request, 'viewer/landingpage.html')
+class LandingPageView(TemplateView):
+    template_name = 'viewer/landingpage.html'
 
 
 def edit(request, collection_id):
