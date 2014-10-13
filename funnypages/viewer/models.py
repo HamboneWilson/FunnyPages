@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 
 
 class ComicSeries(models.Model):
@@ -32,6 +33,10 @@ class Collection(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    @property
+    def url(self):
+        return reverse('viewer:viewer', kwargs={'collection_id': self.id})
 
 
 class User(models.Model):

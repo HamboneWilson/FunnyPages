@@ -17,7 +17,7 @@
         <p class="steps">SAVE AND VIEW YOUR COLLECTION</p>
 
         <!-- GET STARTED BUTTON -->
-        <div class="btn-content"><a href="create"><img src="{% static "viewer/images/button-get-started.jpg" %}" /></a></div>
+        <div class="btn-content"><a href="{% url 'viewer:create' %}"><img src="{% static "viewer/images/button-get-started.jpg" %}" /></a></div>
     </div> <!-- end center-container -->
 </div> <!-- end lp-container -->
 {% endblock %}

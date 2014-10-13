@@ -20,7 +20,7 @@
 
         <form class="viewlist" action="" method="post">
             {% csrf_token %}
-            {{ form.collections }}
+            {{ collectionselectform.as_p }}
         </form>
     </header>
 
@@ -42,7 +42,7 @@
 
                     <p class="fgen">Submit requests for new comics here.  Just enter the title of the series and submit!</p>
 
-                    <form action="" method="post">
+                    <form action="{% url 'viewer:request_confirmation' %}" method="post">
                         {% csrf_token %}
                         <input type="text" class="comrequest" id="newtitle" name="newtitle" placeholder="Series Title">
 

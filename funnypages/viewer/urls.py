@@ -6,4 +6,5 @@ urlpatterns = patterns('',
     url(r'^edit/(?P<collection_id>\d+)/$', 'viewer.views.edit', name='edit'),
     url(r'^create/$', 'viewer.views.create', name='create'),
     url(r'^collection/(?P<collection_id>\d+)/$', 'viewer.views.viewer', name='viewer'),
+    url(r'^submission/', 'viewer.views.request_confirmation', name='request_confirmation')
 )

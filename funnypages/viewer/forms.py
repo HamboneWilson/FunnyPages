@@ -16,7 +16,8 @@ class CollectionForm(forms.ModelForm):
 
 class CollectionSelectForm(forms.Form):
     """A form for selecting a collection to view in the header of every page"""
-    collections = forms.ModelChoiceField(queryset=Collection.objects.all(), empty_label='View a Collection')
+    collections = forms.ModelChoiceField(queryset=Collection.objects.all(), empty_label='View a Collection',
+                                         to_field_name='url')
 
 
 #These forms need prefixes!

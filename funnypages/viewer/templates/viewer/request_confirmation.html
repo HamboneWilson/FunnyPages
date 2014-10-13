@@ -1,0 +1,16 @@
+{% extends '/home/adam/webapps/funnypages/funnypages/viewer/templates/viewer/base.html' %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+<!--- Comic Request Confirmation Content --->
+<div class="lp-container">
+    <div class="center-container">
+
+        <p>Thank you for your request!  We will work on adding that title to the comic list as soon as possible.</p>
+
+        <a href="{% url 'viewer:landingpage' %}">Go Home</a>
+    </div>
+</div>
+{% endblock %}
