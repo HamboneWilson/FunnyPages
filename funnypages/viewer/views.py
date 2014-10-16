@@ -47,5 +47,12 @@ def create(request):
 
 def viewer(request, collection_id):
     collection = get_object_or_404(Collection, pk=collection_id)
-    return render(request, 'viewer/viewer.html', {'collection': collection})
+    series_selection = collection.series.all()
+    image_set = []
+    for series in series_selection:
+        all_images = series.images.all()
+        image_set += all_images
+    return render(request, 'viewer/viewer.html', {
+        'collection': collection,
+        'image_set': image_set})
 

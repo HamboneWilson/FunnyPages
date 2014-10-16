@@ -52,6 +52,10 @@ li h2 {
         color: #2a2b2e;
     }
 
+.comicImagesContainer {
+    color: #ff6d01
+}
+
 button,
 input,
 optgroup,
@@ -121,6 +125,8 @@ GENERAL LAYOUT RULES
             content: "";
             display: block;
         }
+
+
 
 /* --------------------------------------------------------------
 HEADER

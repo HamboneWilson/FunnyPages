@@ -14,5 +14,11 @@
 
 
 <!-- COMIC VIEW -->
-    <!-- NOTE: NEED TO FINISH DJANGO CODE AND SEE HOW TO HANDLE THIS -->
+<div class="comicImagesContainer">
+    {% for image in image_set %}
+        <li>{{ image.series }}</li>
+        <li>{{ image.pub_date }}</li>
+        <li><img src="{{ MEDIA_URL }}{{ image.img }}" /></li>
+    {% endfor %}
+</div>
 {% endblock %}
