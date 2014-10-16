@@ -1,27 +1,33 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html>
 
 <head>
     <title>FUNNYPAGES</title>
 
     <link rel="stylesheet" type='text/css' href="{% static 'viewer/css/normalize.css' %}" />
     <link rel="stylesheet" type='text/css' href="{% static 'viewer/css/styles.css' %}" />
+    <script src="{% static 'viewer/scripts/jquery.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $('#id_collections').change(function(){
+                window.location=this.value;
+            })
+        })
+    </script>
 </head>
 
 <body>
+
     <!-- HEADER -->
     <header>
         <!-- ADD A COLLECTION -->
         <a class="add" href={% url "viewer:create" %}><p><img src="{% static "viewer/images/addicon.png" %}" />ADD COLLECTION</p></a>
 
-
-
-        <form class="viewlist" action="" method="post">
-            {% csrf_token %}
+        <!-- View a Collection Dropdown -->
+        <div id="collectionDropDown">
             {{ collectionselectform.as_p }}
-        </form>
+        </div>
     </header>
 
     <!-- LOGO -->

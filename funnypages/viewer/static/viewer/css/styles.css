@@ -144,18 +144,13 @@ header {
     top: 0
 }
 
-header form {
-    float: left;
-    margin: 24px 0 24px 50px;
-}
-
 .add {
     float: right;
     margin: 10px 50px 0 0;
     z-index: 10;
     position: relative;
 }
-.viewlist {
+#collectionDropDown {
     float: left;
     margin: 10px auto 0 50px;
     position: relative;
