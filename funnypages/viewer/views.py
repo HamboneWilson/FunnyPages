@@ -50,9 +50,10 @@ def viewer(request, collection_id):
     series_selection = collection.series.all()
     image_set = []
     for series in series_selection:
-        all_images = series.images.all()
-        image_set += all_images
+        image = series.images.order_by('-pub_date')[:1]
+        image_set += image
     return render(request, 'viewer/viewer.html', {
         'collection': collection,
-        'image_set': image_set})
+        'image_set': image_set,
+        })
 
