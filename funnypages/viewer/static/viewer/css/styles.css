@@ -53,7 +53,8 @@ li h2 {
     }
 
 .comicImagesContainer {
-    color: #ff6d01
+    color: #2a2b2e;
+    font-family: "Calibri Bold", Arial, sans-serif;
 }
 
 button,
@@ -126,7 +127,32 @@ GENERAL LAYOUT RULES
             display: block;
         }
 
+.subheader-container {
+    width: 100%;
+    height: 128px;
+    margin: 0 auto 0 auto;
+}
 
+#subheader {
+    float: left;
+}
+
+.hr-subheader {
+    clear: both;
+}
+
+.comicImage {
+    list-style-type: none;
+    display: inline-block;
+
+}
+    .comicImage li {
+        display: inline;
+        margin: 16px;
+    }
+        .comicImage li:nth-child(3) {
+            display: block;
+        }
 
 /* --------------------------------------------------------------
 HEADER

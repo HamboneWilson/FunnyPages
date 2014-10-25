@@ -3,8 +3,8 @@
 
 {% block content %}
 <!-- SUBHEADER -->
-<div class="container">
-    <ul>
+<div class="subheader-container">
+    <ul id="subheader">
         <li><h2>{{ collection.name }}</h2></li>
         <li><a class="edit" href="{% url 'viewer:edit' collection.id %}">Edit</a></li>
     </ul>
@@ -16,9 +16,11 @@
 <!-- COMIC VIEW -->
 <div class="comicImagesContainer">
     {% for image in image_set %}
-        <li>{{ image.series }}</li>
-        <li>{{ image.pub_date }}</li>
-        <li><img src="{{ MEDIA_URL }}{{ image.img }}" /></li>
+        <ul class="comicImage">
+            <li>{{ image.series }}</li>
+            <li>{{ image.pub_date }}</li>
+            <li><img src="{{ MEDIA_URL }}{{ image.img }}" /></li>
+        </ul>
     {% endfor %}
-</div>
+</div><!-- end comicImagesContainer -->
 {% endblock %}
