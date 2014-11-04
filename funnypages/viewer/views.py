@@ -16,6 +16,7 @@ def request_confirmation(request):
 
     return render(request, 'viewer/request_confirmation.html')
 
+
 def edit(request, collection_id):
     collection = get_object_or_404(Collection, pk=collection_id)
     form = CollectionForm(instance=collection)

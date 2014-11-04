@@ -1,14 +1,52 @@
+import os
 from django.db import models
 from django.core.urlresolvers import reverse
+import requests
+import urllib
+from bs4 import BeautifulSoup
+from django.conf import settings
+from datetime import datetime
 
 
 class ComicSeries(models.Model):
     """A webcomic (eg. Penny Arcade, PvP, etc.)"""
     name = models.CharField(max_length=200)
-    homepage = models.URLField(max_length=200)
+    url = models.URLField(max_length=200)
 
     def __unicode__(self):
         return self.name
+
+    def download_newest_comic(self):
+        """Downloads the newest image for a webcomic and creates a ComicImg object for it"""
+        newest_comic_url = self.get_newest_comic_url()
+
+        #check the targeted file name against other comics in the comic_img media directory
+        comic_filename = newest_comic_url.split('/')[-1]
+        if comic_filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'comic_img/')):
+            return
+        else:
+            #use that object as an argument to download a target html resource to the comic image media subdirectory
+            img_url = requests.get(newest_comic_url)
+            img = open(os.path.join(settings.MEDIA_ROOT, 'comic_img/%s' % comic_filename), 'wb')
+            img.write(img_url.content)
+            img.close()
+            #create an entry in the comic_img model and use the path of the downloaded image to create the img_field
+            new_comic_image = ComicImg(name=comic_filename, series=self, img='comic_img/%s' % comic_filename, pub_date=datetime.now())
+            new_comic_image.save()
+            
+    def get_newest_comic_url(self):
+        """Finds the url for a webcomic's newest image"""
+        #create a beautiful soup instance for the target comic html
+        soup = BeautifulSoup(requests.get(self.url).text)
+        #use soup.find to return the src attribute of the target comic and store it in an object.
+        if self.name == 'Dr. McNinja' or self.name == 'xkcd':
+            return soup.find(id='comic').find('img').attrs['src']
+
+        elif self.name == 'CTRL ALT DEL':
+            return soup.find(id='content').find('img').attrs['src']
+
+        else:
+            raise Exception('%s is not a supported comic' % self.name)
 
 
 class ComicImg(models.Model):
@@ -46,6 +84,7 @@ class User(models.Model):
 
     def __unicode__(self):
         return self.username
+
 
 class SubmissionLog(models.Model):
     """A class for storing requests for new comics"""
