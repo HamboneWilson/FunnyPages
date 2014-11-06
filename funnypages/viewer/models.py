@@ -2,10 +2,11 @@ import os
 from django.db import models
 from django.core.urlresolvers import reverse
 import requests
-import urllib
 from bs4 import BeautifulSoup
 from django.conf import settings
 from datetime import datetime
+from boto.s3.connection import S3Connection
+from boto.s3.key import Key
 
 
 class ComicSeries(models.Model):
@@ -19,19 +20,26 @@ class ComicSeries(models.Model):
     def download_newest_comic(self):
         """Downloads the newest image for a webcomic and creates a ComicImg object for it"""
         newest_comic_url = self.get_newest_comic_url()
+        comic_filename = newest_comic_url.split('/')[-1]
+        #create a connection to the the image server
+        conn = S3Connection(settings.ACCESS_KEY, settings.PASS_KEY)
+        bucket = conn.get_bucket("funnypages")
+        k = Key(bucket)
 
         #check the targeted file name against other comics in the comic_img media directory
-        comic_filename = newest_comic_url.split('/')[-1]
-        if comic_filename in os.listdir(os.path.join(settings.MEDIA_ROOT, 'comic_img/')):
+        if comic_filename in bucket.list():
             return
         else:
             #use that object as an argument to download a target html resource to the comic image media subdirectory
             img_url = requests.get(newest_comic_url)
-            img = open(os.path.join(settings.MEDIA_ROOT, 'comic_img/%s' % comic_filename), 'wb')
+            img = open(comic_filename, 'wb')
             img.write(img_url.content)
             img.close()
+            k.key = comic_filename
+            k.set_contents_from_filename(comic_filename)
+            os.remove(comic_filename)
             #create an entry in the comic_img model and use the path of the downloaded image to create the img_field
-            new_comic_image = ComicImg(name=comic_filename, series=self, img='comic_img/%s' % comic_filename, pub_date=datetime.now())
+            new_comic_image = ComicImg(name=comic_filename, series=self, pub_date=datetime.now())
             new_comic_image.save()
             
     def get_newest_comic_url(self):
@@ -53,7 +61,6 @@ class ComicImg(models.Model):
     """An comic page from a comic series"""
     series = models.ForeignKey(ComicSeries, related_name='images')
     name = models.CharField(max_length=200)
-    img = models.FileField(upload_to='comic_img/')
     pub_date = models.DateTimeField()
 
     class Meta:

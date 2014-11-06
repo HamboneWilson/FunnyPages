@@ -5,6 +5,6 @@ from viewer.models import ComicSeries
 class Command(NoArgsCommand):
 
     def handle_noargs(self, **options):
-        #for each comic_series in the comic_series model
+        """Get the newest comic for every series on Funnypages"""
         for series in ComicSeries:
             series.download_newest_comic()

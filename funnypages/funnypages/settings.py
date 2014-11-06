@@ -50,6 +50,11 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = 'AKIAJZKWFRMVTGZOMLNQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'funnypages'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
@@ -57,7 +62,7 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = '/media/'
+MEDIA_URL = 'http://funnypages.s3-website-us-east-1.amazonaws.com/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -86,6 +91,8 @@ STATICFILES_FINDERS = (
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 't9qdyu$ck2ej$3*2%wjkp83t+f0hi_jfht1_ey6vz4227#sqck'
+ACCESS_KEY = 'AKIAJZKWFRMVTGZOMLNQ'
+PASS_KEY = 'i1H6rZ6Ga10By/a+t70xHp5Ph5NppHVLC+/PG/kl'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -122,6 +129,7 @@ INSTALLED_APPS = (
     'viewer',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'storages',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
