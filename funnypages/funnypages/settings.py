@@ -55,6 +55,7 @@ AWS_ACCESS_KEY_ID = 'AKIAJZKWFRMVTGZOMLNQ'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'funnypages'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+MEDIAFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
@@ -62,7 +63,7 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = 'http://funnypages.s3-website-us-east-1.amazonaws.com/'
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -116,7 +117,9 @@ ROOT_URLCONF = 'funnypages.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'funnypages.wsgi.application'
 
-TEMPLATE_DIRS = [os.path.join(PROJECT_DIR, 'templates')]
+TEMPLATE_DIRS = (os.path.join(PROJECT_DIR, 'templates'),
+                 os.path.join(PROJECT_DIR, 'viewer/templates/viewer'),
+                 os.path.join(PROJECT_DIR, 'templates/admin'))
 
 INSTALLED_APPS = (
     'django.contrib.auth',

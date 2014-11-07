@@ -25,6 +25,7 @@ class ComicSeries(models.Model):
         conn = S3Connection(settings.ACCESS_KEY, settings.PASS_KEY)
         bucket = conn.get_bucket("funnypages")
         k = Key(bucket)
+        image_path = 'comic_images/'
 
         #check the targeted file name against other comics in the comic_img media directory
         if comic_filename in bucket.list():
@@ -35,7 +36,7 @@ class ComicSeries(models.Model):
             img = open(comic_filename, 'wb')
             img.write(img_url.content)
             img.close()
-            k.key = comic_filename
+            k.key = os.path.join(image_path, comic_filename)
             k.set_contents_from_filename(comic_filename)
             os.remove(comic_filename)
             #create an entry in the comic_img model and use the path of the downloaded image to create the img_field

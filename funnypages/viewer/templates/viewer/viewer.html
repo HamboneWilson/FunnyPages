@@ -1,4 +1,4 @@
-{% extends '/home/adam/webapps/funnypages/funnypages/viewer/templates/viewer/base.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 
 {% block content %}
@@ -19,7 +19,7 @@
         <ul class="comicImage">
             <li>{{ image.series }}</li>
             <li>{{ image.pub_date }}</li>
-            <li><img src="http://funnypages.s3-website-us-east-1.amazonaws.com/{{ image.name }}" /></li>
+            <li><img src="https://s3.amazonaws.com/funnypages/comic_images/{{ image.name }}" /></li>
         </ul>
     {% endfor %}
 </div><!-- end comicImagesContainer -->
