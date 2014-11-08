@@ -1,2 +1,2 @@
-web: python funnypages/manage.py run_gunicorn --workers=$GUNICORN_WORKERS --bind=0.0.0.0
+web: gunicorn -env DJANGO_SETTINGS_MODULE=funnypages.settings funnypages.wsgi:application
 

@@ -5,7 +5,7 @@ boto==2.34.0
 django-annoying==0.7.9
 django-s3-folder-storage==0.2
 django-storages==1.1.8
-gunicorn==17.5
+gunicorn==19.1.1
 ipython==2.3.0
 lxml==3.4.0
 psycopg2==2.5.1
