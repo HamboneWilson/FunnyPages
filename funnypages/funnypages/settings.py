@@ -17,8 +17,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'funnypages',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'adam',
-        'PASSWORD': 'mydogiscatmyC@tisD0g',
+        'USER':'',
+        'PASSWORD':'',
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
@@ -54,8 +54,8 @@ USE_L10N = True
 USE_TZ = True
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_ACCESS_KEY_ID = 'AKIAJZKWFRMVTGZOMLNQ'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
 AWS_STORAGE_BUCKET_NAME = 'funnypages'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 MEDIAFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
@@ -94,9 +94,9 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 't9qdyu$ck2ej$3*2%wjkp83t+f0hi_jfht1_ey6vz4227#sqck'
-ACCESS_KEY = 'AKIAJZKWFRMVTGZOMLNQ'
-PASS_KEY = 'i1H6rZ6Ga10By/a+t70xHp5Ph5NppHVLC+/PG/kl'
+SECRET_KEY = ''
+ACCESS_KEY = ''
+PASS_KEY = ''
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
