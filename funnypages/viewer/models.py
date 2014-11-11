@@ -26,11 +26,15 @@ class ComicSeries(models.Model):
         bucket = conn.get_bucket("funnypages")
         k = Key(bucket)
         image_path = 'comic_images/'
-        bucket_check = os.path.join(image_path, comic_filename)
+        existing_comics = []
 
         #check the targeted file name against other comics in the comic_img media directory
-        if bucket_check in bucket.list():
+        for l in bucket.list():
+            existing_comics += str(l.key)
+
+        if comic_filename in existing_comics:
             return
+
         else:
             #use that object as an argument to download a target html resource to the comic image media subdirectory
             img_url = requests.get(newest_comic_url)
