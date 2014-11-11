@@ -6,5 +6,6 @@ class Command(NoArgsCommand):
 
     def handle_noargs(self, **options):
         """Get the newest comic for every series on Funnypages"""
-        for series in ComicSeries:
+        s = ComicSeries.objects.all()
+        for series in s:
             series.download_newest_comic()
