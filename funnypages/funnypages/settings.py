@@ -64,7 +64,7 @@ MEDIAFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media/')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
+# trailing slash
 # Examples: "http://example.com/media/", "http://media.example.com/"
 MEDIA_URL = '/media/'
 
