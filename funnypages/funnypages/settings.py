@@ -54,8 +54,8 @@ USE_L10N = True
 USE_TZ = True
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_ACCESS_KEY_ID = ''
-AWS_SECRET_ACCESS_KEY = ''
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = 'funnypages'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 MEDIAFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
@@ -94,9 +94,9 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = ''
-ACCESS_KEY = ''
-PASS_KEY = ''
+SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+ACCESS_KEY = os.environ['AWS_ACCESS_KEY_ID']
+PASS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
