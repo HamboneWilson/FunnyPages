@@ -1,0 +1,4 @@
+FunnyPages
+==========
+
+An app that allows you to curate a collection of webcomics that the app then checks for updates.  Skills applied include: Utilizing BeautifulSoup 4 to scrape raw html for img src parameters. Cloud based storage of static and media assets through Amazon AWS (specifically S3 and IAM) accessed through the Boto and Django-storages packages. Live ongoing deployment through Heroku, including a regularly scheduled (through Heroku Scheduler) custom manage.py command that periodically scrapes for the newest comic image url and downloads the associated file to S3 if it does not already exist there.  Front end work included all design including wireframing, final design in Adobe Photoshop, and image slicing.  All HTML and CSS was done from scratch with no templates.  It currently only supports a few comics. http://funnypages.herokuapp.com
